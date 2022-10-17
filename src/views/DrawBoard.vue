@@ -8,7 +8,7 @@
       width="500"
       height="200"
       style="border: 2px solid #6699cc"
-      ref="refCanvas"
+      ref="canvas"
       class="mx-auto"
     ></canvas>
     <!-- 工具列 -->
@@ -46,101 +46,18 @@
   <button type="button" @click="call">console</button>
 </template>
 <script>
-import { ref, onMounted } from "@vue/runtime-core";
+import { onMounted, ref } from "@vue/runtime-core";
 export default {
   setup() {
-    const refCanvas = ref(null);
-    onMounted(() => {
-      const ctx = refCanvas.value.getContext("2d");
-
-      let mousePress = false;
-
-      let lastX;
-      let lastY;
-
-      refCanvas.value.addEventListener("mousedown" | "toulchstart", (e) => {
-        mousePress = true;
-        console.log("Mouse Down!!");
-        draw(e.offsetX, e.offsetY, mousePress);
-      });
-
-      refCanvas.value.addEventListener("mousemove", (e) => {
-        if (mousePress) {
-          draw(e.offsetX, e.offsetY, mousePress);
-        }
-      });
-
-      refCanvas.value.addEventListener("mouseup", () => {
-        mousePress = false;
-        lastX = undefined;
-        lastY = undefined;
-      });
-
-      // Mobile
-      refCanvas.value.addEventListener("touchstart", (e) => {
-        mousePress = true;
-        console.log("Touch Start!!");
-        draw(e.offsetX, e.offsetY, mousePress);
-      });
-
-      refCanvas.value.addEventListener("touchmove", (e) => {
-        if (mousePress) {
-          draw(e.offsetX, e.offsetY, mousePress);
-        }
-      });
-
-      refCanvas.value.addEventListener("touchend", () => {
-        mousePress = false;
-        lastX = undefined;
-        lastY = undefined;
-      });
-
-      // Draw
-      function draw(x, y, isDown) {
-        let color = document.querySelector("#selColor").value;
-        let width = document.querySelector("#selWidth").value;
-        if (isDown) {
-          ctx.beginPath();
-          ctx.strokeStyle = color;
-          ctx.lineWidth = width;
-          ctx.lineJoin = "round";
-          console.log(lastX, lastY);
-          ctx.moveTo(lastX, lastY);
-          ctx.lineTo(x, y);
-          ctx.closePath();
-          ctx.stroke();
-        }
-        lastX = x;
-        lastY = y;
-      }
-    });
-
-    // 清空簽名版
-    const clearArea = () => {
-      // Use the identity matrix while clearing the canvas
-      const ctx = refCanvas.value.getContext("2d");
-
-      ctx.setTransform(1, 0, 0, 1, 0, 0);
-      ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-    };
-
-    const testArea = ref(null);
+    const canvas = ref(null);
 
     onMounted(() => {
-      testArea.value.addEventListener("touchstart", () => {
-        console.log("Touch Event!", testArea.value);
-      });
+      console.log(canvas.value);
+      const ctx = canvas.value.getContext("2d");
     });
-
-    const call = () => {
-      console.log(testArea.value);
-    };
 
     return {
-      refCanvas,
-      clearArea,
-      testArea,
-      call,
+      canvas,
     };
   },
 };
