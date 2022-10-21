@@ -10,6 +10,7 @@
   "dependencies": {
     "autoprefixer": "^10",
     "core-js": "^3.8.3",
+    "fabric": "^5.2.4",
     "pdfjs-dist": "^2.16.105",
     "postcss": "^8",
     "tailwindcss": "^3",

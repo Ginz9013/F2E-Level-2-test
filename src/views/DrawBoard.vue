@@ -65,26 +65,12 @@
       </button>
     </div>
   </div>
-  <!-- PDF Viewer -->
-  <div>
-    <PdfViewer />
-  </div>
 </template>
 <script>
 import { onMounted, ref } from "@vue/runtime-core";
-import PdfViewer from "../components/PdfViewer.vue";
-
-// import { PDFViewer } from "pdfjs-dist/web/pdf_viewer";
-// import "pdfjs-dist/web/pdf_viewer.css";
-
-// pdfjsLib.GlobalWorkerOptions.workerSrc =
-//   "https://cdn.jsdelivr.net/npm/pdfjs-dist@2.0.943/build/pdf.worker.min.js";
 
 export default {
   name: "DrawBoard",
-  components: {
-    PdfViewer,
-  },
   setup() {
     const canvas = ref(null);
     const color = ref(null);

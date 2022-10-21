@@ -1,7 +1,10 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link> |
-    <router-link to="/DrawBoard">DrawBoard</router-link>
+    <router-link to="/DrawBoard">DrawBoard</router-link> |
+    <router-link to="/FabricView">FabricView</router-link> |
+    <router-link to="/FabricJs">FabricJs</router-link> |
+    <router-link to="/TestPage">TestPage</router-link>
   </nav>
   <router-view />
 </template>

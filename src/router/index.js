@@ -1,6 +1,9 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import DrawBoard from "../views/DrawBoard.vue";
+import FabricView from "../views/FabricView.vue";
+import FabricJs from "../views/FabricJs.vue";
+import TestPage from "../views/TestPage.vue";
 
 const routes = [
   {
@@ -12,6 +15,21 @@ const routes = [
     path: "/DrawBoard",
     name: "DrawBoard",
     component: DrawBoard,
+  },
+  {
+    path: "/FabricView",
+    name: "FabricView",
+    component: FabricView,
+  },
+  {
+    path: "/FabricJs",
+    name: "FabricJs",
+    component: FabricJs,
+  },
+  {
+    path: "/TestPage",
+    name: "TestPage",
+    component: TestPage,
   },
 ];
 
